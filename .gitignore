@@ -10,3 +10,20 @@ AGENTS.md
 docs/DEMO_SCRIPT.md
 docs/SUBMISSION.md
 docs/NEXT_STEPS.md
+
+# Internal QA / rebuild artifacts (kept locally, not for judges)
+outputs/*.mjs
+outputs/data-audit.json
+outputs/demo-snapshots.json
+outputs/import-preflight.json
+outputs/reconciliation.json
+outputs/smoke-test.json
+outputs/screenshots/
+
+# Duplicate slide HTML/assets (submission deck is docs/FireSense-slides.pptx)
+docs/slides.html
+docs/FireSense-slides.html
+docs/slide-assets/
+dist/FireSense-slides.html
+dist/FireSense-slides.pptx
+scripts/build_slides_pptx.py
