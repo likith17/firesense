@@ -12,12 +12,13 @@ The live demo is the self-contained offline build with embedded real-data snapsh
 Node.js 24 or newer. No npm install is required.
 
 ```powershell
-cd D:\Projects\spaceapps-firms
+git clone https://github.com/likith17/firesense.git
+cd firesense
 node src/server.js
 ```
 
 Open http://127.0.0.1:8000. The default bind is localhost. Set HOST and PORT explicitly for hosting.
-The active database is selected by config/active-database.json. The reconciled database has 28,789,421 observations. Original files and the old database are preserved.
+The active database is selected by config/active-database.json. The reconciled database has 28,789,421 observations and is not included in this repository (see Deployment). Original files and the old database are preserved locally.
 
 ## Offline demo
 
@@ -54,7 +55,7 @@ New raw imports: run node src/inspect.js first. Build a fresh database with node
 
 ## Deployment
 
-The Dockerfile packages the app and reconciled database with Node 24 and a non-root runtime. The container was built and smoke-tested on November 15, 2026 (full database served, non-root, error handling verified); public hosting has still not occurred. A hosting service must support a persistent Node process and roughly 250 MB of database storage plus working space. The offline HTML can instead be hosted as a static file; it exposes only the documented presets. No credentials are included.
+The Dockerfile packages the app and reconciled database with Node 24 and a non-root runtime. The container was built and smoke-tested on November 15, 2026 (full database served, non-root, error handling verified). A hosting service must support a persistent Node process and roughly 250 MB of database storage plus working space. The offline HTML is already hosted at https://likith17.github.io/firesense/ (four documented presets only). No credentials are included.
 
 ## Limitations
 
