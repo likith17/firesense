@@ -17,6 +17,14 @@ from pptx.util import Emu, Inches, Pt
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DOCS = ROOT / "docs" / "FireSense-slides.pptx"
 OUT_DIST = ROOT / "dist" / "FireSense-slides.pptx"
+ASSETS = ROOT / "docs" / "slide-assets"
+
+# Verified UI captures (from outputs/screenshots/, cropped for slides)
+IMG_GLOBAL = ASSETS / "slide-global-2026.jpg"
+IMG_CA_MAP = ASSETS / "slide-california-map.jpg"
+IMG_ANOMALY = ASSETS / "slide-anomaly-median-seasonal.jpg"
+IMG_EVAL = ASSETS / "slide-evaluation.jpg"
+TOTAL_SLIDES = 11
 
 # Dark earthy atlas palette (matches docs/slides.html)
 BG = RGBColor(0x10, 0x18, 0x16)
@@ -181,10 +189,31 @@ def kicker_title(slide, kicker, title, *, title_size=36):
     return box2
 
 
-def footer(slide, n, total=10):
+def footer(slide, n, total=TOTAL_SLIDES):
     box = _textbox(slide, Inches(0.7), Inches(7.05), Inches(8), Inches(0.3))
     tf = box.text_frame
     add_paragraph_text(tf, f"FireSense  ·  Space Apps 2026  ·  {n}/{total}", size=11, color=MUTED, space_after=0, first=True)
+
+
+def add_picture_fit(slide, path: Path, left, top, width, height):
+    """Place a picture scaled to fit inside a box, top-left aligned."""
+    from PIL import Image
+
+    with Image.open(path) as im:
+        iw, ih = im.size
+    box_w = float(width)
+    box_h = float(height)
+    scale = min(box_w / iw, box_h / ih)
+    pw = iw * scale
+    ph = ih * scale
+    return slide.shapes.add_picture(str(path), left, top, width=int(pw), height=int(ph))
+
+
+def caption(slide, left, top, width, text):
+    box = _textbox(slide, left, top, width, Inches(0.35))
+    tf = box.text_frame
+    tf.word_wrap = True
+    add_paragraph_text(tf, text, size=11, color=MUTED, space_after=0, first=True)
 
 
 def bullet_block(slide, left, top, width, height, items, *, size=20):
@@ -451,41 +480,47 @@ def build():
     )
     footer(s, 5)
 
-    # --- 6 Exploring ---
+    # --- 6 Exploring (with Global 2026 UI) ---
     s = new_slide(prs)
-    kicker_title(s, "Exploring the atlas", "Map + calendar = place and season in one view.")
+    kicker_title(s, "Exploring the atlas", "Map + calendar = place and season in one view.", title_size=30)
     bullet_block(
         s,
         Inches(0.7),
-        Inches(2.5),
-        Inches(11.5),
-        Inches(3.2),
+        Inches(2.35),
+        Inches(4.0),
+        Inches(4.2),
         [
             [("Map: ", True, MINT), ("where detections cluster inside your selection.", False, TEXT)],
             [("Calendar: ", True, MINT), ("how busy each month looks across years.", False, TEXT)],
-            [("Typical-month mode: ", True, MINT), ("compare a month to the median of that same month in the other years you selected.", False, TEXT)],
-            [("Seasonal profile: ", True, MINT), ("a simple year-shape of activity for the selection.", False, TEXT)],
+            [("Typical-month mode: ", True, MINT), ("compare to the median of that same month in the other selected years.", False, TEXT)],
             "Demo starters: Global 2026, California history, Pacific Northwest, Southeastern U.S.",
         ],
-        size=17,
+        size=15,
     )
-    analogy_box(
-        s,
-        Inches(0.7),
-        Inches(5.7),
-        Inches(11.8),
-        Inches(1.0),
-        "Like a photo album with a date stamp: flip by place on the map, flip by month on the calendar.",
-    )
+    add_picture_fit(s, IMG_GLOBAL, Inches(4.9), Inches(2.3), Inches(7.7), Inches(4.4))
+    caption(s, Inches(4.9), Inches(6.75), Inches(7.7), "Live UI: Global 2026 preset - VIIRS SNPP standard detections on a world grid.")
     footer(s, 6)
 
-    # --- 7 California ---
+    # --- 7 California selection (map UI) ---
+    s = new_slide(prs)
+    kicker_title(s, "California on the map", "One selection. Full history in view.", title_size=32)
+    add_picture_fit(s, IMG_CA_MAP, Inches(0.7), Inches(2.35), Inches(11.9), Inches(4.2))
+    caption(
+        s,
+        Inches(0.7),
+        Inches(6.65),
+        Inches(11.9),
+        "California history preset: custom bounds, VIIRS SNPP standard archive, 2013-2025. Hotspot detections, not unique fires.",
+    )
+    footer(s, 7)
+
+    # --- 8 California January 2025 story (anomaly calendar) ---
     s = new_slide(prs)
     kicker_title(
         s,
         "A story from the calendar",
         "California, January 2025 - almost 4× a typical January.",
-        title_size=32,
+        title_size=28,
     )
     w = Inches(3.7)
     gap = Inches(0.25)
@@ -496,28 +531,31 @@ def build():
         ("How unusual?", "~4×", "vs that typical January - not an average"),
     ]
     for i, (lab, val, note) in enumerate(stats):
-        stat_card(s, start + i * (w + gap), Inches(2.55), w, Inches(2.0), lab, val, note)
-    bullet_block(
+        left = start + i * (w + gap)
+        shape = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, Inches(2.3), w, Inches(1.15))
+        _panel_fill(shape, PANEL, LINE)
+        try:
+            shape.adjustments[0] = 0.1
+        except Exception:
+            pass
+        box = _textbox(s, left + Inches(0.15), Inches(2.36), w - Inches(0.28), Inches(1.0))
+        tf = box.text_frame
+        tf.word_wrap = True
+        add_paragraph_text(tf, lab.upper(), size=10, bold=True, color=MUTED, space_after=1, first=True)
+        add_paragraph_text(tf, val, size=24, color=ORANGE, space_after=1, name="Georgia")
+        add_paragraph_text(tf, note, size=11, color=MUTED, space_after=0)
+
+    add_picture_fit(s, IMG_ANOMALY, Inches(0.7), Inches(3.6), Inches(11.9), Inches(3.15))
+    caption(
         s,
         Inches(0.7),
-        Inches(4.85),
-        Inches(11.8),
-        Inches(1.6),
-        [
-            [
-                ("This is a ", False, TEXT),
-                ("descriptive", True, MINT),
-                (" view inside the selection - not a cloud-corrected anomaly product.", False, TEXT),
-            ],
-            [
-                ('It helps a non-expert ask better questions: "Was this January unusually busy in the record we selected?"', False, TEXT),
-            ],
-        ],
-        size=16,
+        Inches(6.8),
+        Inches(11.9),
+        "Vs. typical month: orange above / blue below the median. Descriptive inside the selection - not a cloud-corrected anomaly product.",
     )
-    footer(s, 7)
+    footer(s, 8)
 
-    # --- 8 Compare ---
+    # --- 9 Compare ---
     s = new_slide(prs)
     kicker_title(s, "Cross-sensor evidence", "Compare the two eyes. Do not pretend they are one.")
     bullet_block(
@@ -550,17 +588,17 @@ def build():
         Inches(1.0),
         "Two witnesses. Listen to both. Do not average their stories into a fake third voice.",
     )
-    footer(s, 8)
+    footer(s, 9)
 
-    # --- 9 Evaluation ---
+    # --- 10 Evaluation (with UI) ---
     s = new_slide(prs)
-    kicker_title(s, "Held-out scientific check", "We studied for the test - then took a sealed exam.")
+    kicker_title(s, "Held-out scientific check", "We studied for the test - then took a sealed exam.", title_size=30)
     bullet_block(
         s,
         Inches(0.7),
-        Inches(2.45),
-        Inches(7.0),
-        Inches(3.0),
+        Inches(2.3),
+        Inches(4.2),
+        Inches(2.6),
         [
             [("Train ", True, MINT), ("2013-2021 → fit candidates.", False, TEXT)],
             [("Select ", True, MINT), ("on 2022 → pick the mapping.", False, TEXT)],
@@ -568,21 +606,20 @@ def build():
             [("Test once ", True, MINT), ("on 2024-2025.", False, TEXT)],
             "Three U.S. boxes only · 72 region-months · experimental.",
         ],
-        size=17,
+        size=14,
     )
-    stat_card(s, Inches(8.1), Inches(2.45), Inches(4.4), Inches(1.7), "Log-linear MAE", "~960", "12.9% better than a fitted ratio baseline")
-    stat_card(s, Inches(8.1), Inches(4.35), Inches(4.4), Inches(1.7), "Interval coverage", "90.3%", "empirical on the held-out pairs")
-    analogy_box(
+    stat_card(s, Inches(0.7), Inches(5.0), Inches(4.2), Inches(1.55), "Log-linear MAE", "~960", "12.9% better than fitted ratio")
+    add_picture_fit(s, IMG_EVAL, Inches(5.15), Inches(2.25), Inches(7.5), Inches(4.35))
+    caption(
         s,
-        Inches(0.7),
-        Inches(5.75),
-        Inches(11.8),
-        Inches(0.95),
-        "School test: practice years, a quiz to choose the method, then a final exam you only open once. This is not a forecast and not fusion.",
+        Inches(5.15),
+        Inches(6.7),
+        Inches(7.5),
+        "In-app evaluation panel: hotspot-count errors in tested regions - not fire-risk scores, not a forecast.",
     )
-    footer(s, 9)
+    footer(s, 10)
 
-    # --- 10 Limits & links ---
+    # --- 11 Limits & links ---
     s = new_slide(prs)
     kicker_title(s, "Honesty + try it", "What we do not claim - and where to look.")
     bullet_block(
@@ -614,7 +651,7 @@ def build():
     add_paragraph_text(tf, "github.com/likith17/firesense", size=14, color=MINT, space_after=16)
     add_paragraph_text(tf, "Team: Likith Podalakuru (solo)", size=13, color=MUTED, space_after=6)
     add_paragraph_text(tf, "Challenge: MODIS and VIIRS Hot Spots", size=13, color=MUTED, space_after=0)
-    footer(s, 10)
+    footer(s, 11)
 
     OUT_DOCS.parent.mkdir(parents=True, exist_ok=True)
     OUT_DIST.parent.mkdir(parents=True, exist_ok=True)
@@ -625,29 +662,52 @@ def build():
 
 def verify(path: Path):
     from pptx import Presentation as P
+    from pptx.enum.shapes import MSO_SHAPE_TYPE
+    import zipfile
 
     prs = P(path)
     n = len(prs.slides)
     size = path.stat().st_size
-    # unzip check
-    import zipfile
+    pictures_by_slide = {}
+    for i, slide in enumerate(prs.slides, 1):
+        pics = [sh for sh in slide.shapes if sh.shape_type == MSO_SHAPE_TYPE.PICTURE]
+        if pics:
+            pictures_by_slide[i] = [
+                {
+                    "w_in": round(p.width.inches, 2),
+                    "h_in": round(p.height.inches, 2),
+                }
+                for p in pics
+            ]
 
     with zipfile.ZipFile(path, "r") as zf:
         names = zf.namelist()
         slide_xml = [x for x in names if x.startswith("ppt/slides/slide") and x.endswith(".xml")]
+        media = [x for x in names if x.startswith("ppt/media/")]
     return {
         "path": str(path),
         "bytes": size,
         "slides_api": n,
         "slide_xml_count": len(slide_xml),
-        "sample_entries": slide_xml[:3],
+        "media_files": media,
+        "pictures_by_slide": pictures_by_slide,
     }
 
 
+def assert_assets():
+    missing = [p for p in (IMG_GLOBAL, IMG_CA_MAP, IMG_ANOMALY, IMG_EVAL) if not p.is_file()]
+    if missing:
+        raise FileNotFoundError("Missing slide assets: " + ", ".join(str(p) for p in missing))
+
+
 if __name__ == "__main__":
+    assert_assets()
     docs, dist, count = build()
     info = verify(docs)
     print(f"Wrote {docs}")
     print(f"Copied {dist}")
     print(f"Slide count: {count}")
     print(f"Verify: {info}")
+    if not info["media_files"] or not info["pictures_by_slide"]:
+        raise SystemExit("ERROR: pptx has no embedded pictures")
+    print(f"OK: {len(info['media_files'])} media file(s) on slides {sorted(info['pictures_by_slide'])}")
