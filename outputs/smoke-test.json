@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-11-15T20:55:51.220Z",
+  "checks": [
+    "Active reconciled database and source ledger",
+    "Real-data dashboard / grid / CSV reconciliation",
+    "Matched raw sensor comparison",
+    "Held-out evaluation served",
+    "Provenance download",
+    "Offline demo embeds assets and parses as JavaScript (not a visual test)"
+  ],
+  "visual_verification": false
+}

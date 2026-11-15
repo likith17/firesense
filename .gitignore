@@ -1,0 +1,6 @@
+data/raw/
+data/processed/
+*.zip
+.env
+node_modules/
+outputs/*.log

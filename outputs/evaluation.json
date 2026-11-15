@@ -1,0 +1,801 @@
+{
+  "generated_at": "2026-11-15T20:16:00.909Z",
+  "database": "data/processed/firesense-reconciled.sqlite",
+  "status": "experimental_held_out_evaluation",
+  "target": "VIIRS S-NPP nominal/high monthly detection counts from MODIS >=30 monthly detection counts",
+  "splits": {
+    "train": "2013-2021",
+    "selection": "2022",
+    "interval_calibration": "2023",
+    "test": "2024-2025"
+  },
+  "regions": [
+    {
+      "name": "California bounds",
+      "bbox": [
+        -125,
+        32,
+        -114,
+        42
+      ],
+      "unpaired_months": [],
+      "paired_months": 156,
+      "test": {
+        "n": 24,
+        "mae": 917.1038978979624,
+        "rmse": 1725.0117493076934,
+        "bias": -307.17407302462726
+      }
+    },
+    {
+      "name": "Pacific Northwest bounds",
+      "bbox": [
+        -125,
+        42,
+        -116,
+        49
+      ],
+      "unpaired_months": [],
+      "paired_months": 156,
+      "test": {
+        "n": 24,
+        "mae": 1311.7911034524172,
+        "rmse": 2670.1859200009717,
+        "bias": -638.9821625087569
+      }
+    },
+    {
+      "name": "Southeastern U.S. bounds",
+      "bbox": [
+        -90,
+        25,
+        -75,
+        36
+      ],
+      "unpaired_months": [],
+      "paired_months": 156,
+      "test": {
+        "n": 24,
+        "mae": 650.4611604465748,
+        "rmse": 869.7316634167846,
+        "bias": -227.9490350435699
+      }
+    }
+  ],
+  "training_pairs": 324,
+  "candidates": [
+    {
+      "model": {
+        "kind": "identity"
+      },
+      "validation": {
+        "n": 36,
+        "mae": 3205.1388888888887,
+        "rmse": 4903.1277800785265,
+        "bias": -3205.1388888888887
+      },
+      "test": {
+        "n": 72,
+        "mae": 3617.3888888888887,
+        "rmse": 4995.062167336414,
+        "bias": -3617.3888888888887
+      }
+    },
+    {
+      "model": {
+        "kind": "ratio",
+        "ratio": 3.8193307490703776
+      },
+      "validation": {
+        "n": 36,
+        "mae": 1149.1573159375935,
+        "rmse": 1822.6812690499976,
+        "bias": 104.52046629064523
+      },
+      "test": {
+        "n": 72,
+        "mae": 1101.4298436155032,
+        "rmse": 2507.579163255947,
+        "bias": 192.62335950760763
+      }
+    },
+    {
+      "model": {
+        "kind": "loglinear",
+        "slope": 0.8806432736520163,
+        "intercept": 2.1349795587881424
+      },
+      "validation": {
+        "n": 36,
+        "mae": 946.0277551259852,
+        "rmse": 1915.500090560092,
+        "bias": -345.20191719022563
+      },
+      "test": {
+        "n": 72,
+        "mae": 959.7853872656518,
+        "rmse": 1902.8042068633647,
+        "bias": -391.3684235256513
+      }
+    }
+  ],
+  "selected_model": {
+    "kind": "loglinear",
+    "slope": 0.8806432736520163,
+    "intercept": 2.1349795587881424
+  },
+  "test": {
+    "n": 72,
+    "mae": 959.7853872656518,
+    "rmse": 1902.8042068633647,
+    "bias": -391.3684235256513
+  },
+  "improvement_vs_raw_pct": 73.46745354878176,
+  "improvement_vs_ratio_pct": 12.860052519086983,
+  "interval": {
+    "absolute_residual_radius": 2223.7637352737984,
+    "nominal_level": 0.9,
+    "held_out_coverage": 0.9027777777777778,
+    "calibration_pairs": 36
+  },
+  "test_predictions": [
+    {
+      "month": "2024-01",
+      "modis": 144,
+      "viirs": 940,
+      "region": "California bounds",
+      "adjusted": 676.0239532900445,
+      "lower": 0,
+      "upper": 2899.787688563843
+    },
+    {
+      "month": "2024-02",
+      "modis": 96,
+      "viirs": 710,
+      "region": "California bounds",
+      "adjusted": 474.1678028982303,
+      "lower": 0,
+      "upper": 2697.931538172029
+    },
+    {
+      "month": "2024-03",
+      "modis": 290,
+      "viirs": 1443,
+      "region": "California bounds",
+      "adjusted": 1249.3184192742624,
+      "lower": 0,
+      "upper": 3473.0821545480608
+    },
+    {
+      "month": "2024-04",
+      "modis": 314,
+      "viirs": 1715,
+      "region": "California bounds",
+      "adjusted": 1339.695729551579,
+      "lower": 0,
+      "upper": 3563.4594648253774
+    },
+    {
+      "month": "2024-05",
+      "modis": 331,
+      "viirs": 1480,
+      "region": "California bounds",
+      "adjusted": 1403.2134764857758,
+      "lower": 0,
+      "upper": 3626.977211759574
+    },
+    {
+      "month": "2024-06",
+      "modis": 825,
+      "viirs": 3503,
+      "region": "California bounds",
+      "adjusted": 3132.49278754032,
+      "lower": 908.7290522665216,
+      "upper": 5356.256522814118
+    },
+    {
+      "month": "2024-07",
+      "modis": 4800,
+      "viirs": 7442,
+      "region": "California bounds",
+      "adjusted": 14761.157898480022,
+      "lower": 12537.394163206223,
+      "upper": 16984.92163375382
+    },
+    {
+      "month": "2024-08",
+      "modis": 1509,
+      "viirs": 7346,
+      "region": "California bounds",
+      "adjusted": 5329.335033573319,
+      "lower": 3105.571298299521,
+      "upper": 7553.098768847118
+    },
+    {
+      "month": "2024-09",
+      "modis": 1416,
+      "viirs": 6572,
+      "region": "California bounds",
+      "adjusted": 5039.13887143232,
+      "lower": 2815.375136158522,
+      "upper": 7262.902606706119
+    },
+    {
+      "month": "2024-10",
+      "modis": 775,
+      "viirs": 3818,
+      "region": "California bounds",
+      "adjusted": 2964.835969443893,
+      "lower": 741.0722341700948,
+      "upper": 5188.599704717692
+    },
+    {
+      "month": "2024-11",
+      "modis": 606,
+      "viirs": 2803,
+      "region": "California bounds",
+      "adjusted": 2387.9454963372923,
+      "lower": 164.18176106349392,
+      "upper": 4611.70923161109
+    },
+    {
+      "month": "2024-12",
+      "modis": 209,
+      "viirs": 1344,
+      "region": "California bounds",
+      "adjusted": 937.1162162086324,
+      "lower": 0,
+      "upper": 3160.879951482431
+    },
+    {
+      "month": "2025-01",
+      "modis": 866,
+      "viirs": 3856,
+      "region": "California bounds",
+      "adjusted": 3269.066596819115,
+      "lower": 1045.3028615453168,
+      "upper": 5492.8303320929135
+    },
+    {
+      "month": "2025-02",
+      "modis": 176,
+      "viirs": 1117,
+      "region": "California bounds",
+      "adjusted": 805.9978500943542,
+      "lower": 0,
+      "upper": 3029.7615853681527
+    },
+    {
+      "month": "2025-03",
+      "modis": 237,
+      "viirs": 1193,
+      "region": "California bounds",
+      "adjusted": 1046.4332421909521,
+      "lower": 0,
+      "upper": 3270.1969774647505
+    },
+    {
+      "month": "2025-04",
+      "modis": 355,
+      "viirs": 1595,
+      "region": "California bounds",
+      "adjusted": 1492.2314218040224,
+      "lower": 0,
+      "upper": 3715.9951570778207
+    },
+    {
+      "month": "2025-05",
+      "modis": 347,
+      "viirs": 1617,
+      "region": "California bounds",
+      "adjusted": 1462.64079915942,
+      "lower": 0,
+      "upper": 3686.4045344332185
+    },
+    {
+      "month": "2025-06",
+      "modis": 297,
+      "viirs": 1700,
+      "region": "California bounds",
+      "adjusted": 1275.7673020179523,
+      "lower": 0,
+      "upper": 3499.5310372917506
+    },
+    {
+      "month": "2025-07",
+      "modis": 1661,
+      "viirs": 6573,
+      "region": "California bounds",
+      "adjusted": 5799.118753644529,
+      "lower": 3575.3550183707302,
+      "upper": 8022.882488918327
+    },
+    {
+      "month": "2025-08",
+      "modis": 2819,
+      "viirs": 10239,
+      "region": "California bounds",
+      "adjusted": 9238.50087700109,
+      "lower": 7014.737141727292,
+      "upper": 11462.264612274888
+    },
+    {
+      "month": "2025-09",
+      "modis": 1331,
+      "viirs": 7304,
+      "region": "California bounds",
+      "adjusted": 4771.912475523363,
+      "lower": 2548.148740249565,
+      "upper": 6995.676210797162
+    },
+    {
+      "month": "2025-10",
+      "modis": 382,
+      "viirs": 2258,
+      "region": "California bounds",
+      "adjusted": 1591.5257605052357,
+      "lower": 0,
+      "upper": 3815.289495779034
+    },
+    {
+      "month": "2025-11",
+      "modis": 264,
+      "viirs": 1794,
+      "region": "California bounds",
+      "adjusted": 1150.3968067079088,
+      "lower": 0,
+      "upper": 3374.160541981707
+    },
+    {
+      "month": "2025-12",
+      "modis": 168,
+      "viirs": 1382,
+      "region": "California bounds",
+      "adjusted": 773.788707425313,
+      "lower": 0,
+      "upper": 2997.5524426991115
+    },
+    {
+      "month": "2024-01",
+      "modis": 23,
+      "viirs": 189,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 137.89403271024412,
+      "lower": 0,
+      "upper": 2361.6577679840425
+    },
+    {
+      "month": "2024-02",
+      "modis": 29,
+      "viirs": 150,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 168.0545012119134,
+      "lower": 0,
+      "upper": 2391.8182364857116
+    },
+    {
+      "month": "2024-03",
+      "modis": 247,
+      "viirs": 877,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1085.0944843333696,
+      "lower": 0,
+      "upper": 3308.858219607168
+    },
+    {
+      "month": "2024-04",
+      "modis": 171,
+      "viirs": 692,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 785.8880159299362,
+      "lower": 0,
+      "upper": 3009.6517512037344
+    },
+    {
+      "month": "2024-05",
+      "modis": 391,
+      "viirs": 1289,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1624.4356208614126,
+      "lower": 0,
+      "upper": 3848.199356135211
+    },
+    {
+      "month": "2024-06",
+      "modis": 409,
+      "viirs": 1658,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1689.9873950139506,
+      "lower": 0,
+      "upper": 3913.751130287749
+    },
+    {
+      "month": "2024-07",
+      "modis": 8733,
+      "viirs": 18240,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 25003.186240704898,
+      "lower": 22779.4225054311,
+      "upper": 27226.949975978696
+    },
+    {
+      "month": "2024-08",
+      "modis": 3609,
+      "viirs": 16699,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 11483.302665580872,
+      "lower": 9259.538930307073,
+      "upper": 13707.06640085467
+    },
+    {
+      "month": "2024-09",
+      "modis": 4018,
+      "viirs": 20344,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 12621.695941701297,
+      "lower": 10397.932206427498,
+      "upper": 14845.459676975095
+    },
+    {
+      "month": "2024-10",
+      "modis": 1050,
+      "viirs": 4948,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 3873.0386469671944,
+      "lower": 1649.274911693396,
+      "upper": 6096.802382240992
+    },
+    {
+      "month": "2024-11",
+      "modis": 724,
+      "viirs": 2931,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 2792.4909402871153,
+      "lower": 568.727205013317,
+      "upper": 5016.254675560914
+    },
+    {
+      "month": "2024-12",
+      "modis": 293,
+      "viirs": 1182,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1260.6628488138545,
+      "lower": 0,
+      "upper": 3484.426584087653
+    },
+    {
+      "month": "2025-01",
+      "modis": 86,
+      "viirs": 575,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 430.7520668796024,
+      "lower": 0,
+      "upper": 2654.5158021534007
+    },
+    {
+      "month": "2025-02",
+      "modis": 12,
+      "viirs": 158,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 79.9462179077324,
+      "lower": 0,
+      "upper": 2303.7099531815306
+    },
+    {
+      "month": "2025-03",
+      "modis": 114,
+      "viirs": 497,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 551.0132897197741,
+      "lower": 0,
+      "upper": 2774.7770249935725
+    },
+    {
+      "month": "2025-04",
+      "modis": 384,
+      "viirs": 1438,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1598.8469662222249,
+      "lower": 0,
+      "upper": 3822.6107014960235
+    },
+    {
+      "month": "2025-05",
+      "modis": 337,
+      "viirs": 1096,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1425.5379285125937,
+      "lower": 0,
+      "upper": 3649.301663786392
+    },
+    {
+      "month": "2025-06",
+      "modis": 209,
+      "viirs": 943,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 937.1162162086324,
+      "lower": 0,
+      "upper": 3160.879951482431
+    },
+    {
+      "month": "2025-07",
+      "modis": 1053,
+      "viirs": 4082,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 3882.7752755002134,
+      "lower": 1659.011540226415,
+      "upper": 6106.539010774011
+    },
+    {
+      "month": "2025-08",
+      "modis": 1142,
+      "viirs": 5281,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 4170.168025140988,
+      "lower": 1946.4042898671896,
+      "upper": 6393.931760414786
+    },
+    {
+      "month": "2025-09",
+      "modis": 3942,
+      "viirs": 18289,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 12411.249757336387,
+      "lower": 10187.486022062589,
+      "upper": 14635.013492610185
+    },
+    {
+      "month": "2025-10",
+      "modis": 1109,
+      "viirs": 4562,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 4063.929695658884,
+      "lower": 1840.1659603850858,
+      "upper": 6287.6934309326825
+    },
+    {
+      "month": "2025-11",
+      "modis": 607,
+      "viirs": 3283,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 2391.4110681157567,
+      "lower": 167.64733284195836,
+      "upper": 4615.174803389555
+    },
+    {
+      "month": "2025-12",
+      "modis": 248,
+      "viirs": 1490,
+      "region": "Pacific Northwest bounds",
+      "adjusted": 1088.9502584709887,
+      "lower": 0,
+      "upper": 3312.7139937447873
+    },
+    {
+      "month": "2024-01",
+      "modis": 1374,
+      "viirs": 5231,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 4907.344120316788,
+      "lower": 2683.5803850429893,
+      "upper": 7131.107855590586
+    },
+    {
+      "month": "2024-02",
+      "modis": 4813,
+      "viirs": 15161,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 14796.353743783127,
+      "lower": 12572.590008509329,
+      "upper": 17020.117479056928
+    },
+    {
+      "month": "2024-03",
+      "modis": 3888,
+      "viirs": 10908,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 12261.428256855233,
+      "lower": 10037.664521581435,
+      "upper": 14485.191992129032
+    },
+    {
+      "month": "2024-04",
+      "modis": 2544,
+      "viirs": 8259,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 8440.232898093727,
+      "lower": 6216.469162819929,
+      "upper": 10663.996633367526
+    },
+    {
+      "month": "2024-05",
+      "modis": 916,
+      "viirs": 3786,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 3434.5832040668397,
+      "lower": 1210.8194687930413,
+      "upper": 5658.346939340638
+    },
+    {
+      "month": "2024-06",
+      "modis": 912,
+      "viirs": 3633,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 3421.3822787502395,
+      "lower": 1197.6185434764411,
+      "upper": 5645.146014024038
+    },
+    {
+      "month": "2024-07",
+      "modis": 650,
+      "viirs": 1485,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 2539.8031186713856,
+      "lower": 316.03938339758724,
+      "upper": 4763.5668539451835
+    },
+    {
+      "month": "2024-08",
+      "modis": 1429,
+      "viirs": 5185,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 5079.837426704819,
+      "lower": 2856.073691431021,
+      "upper": 7303.601161978618
+    },
+    {
+      "month": "2024-09",
+      "modis": 1012,
+      "viirs": 3378,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 3749.417207689592,
+      "lower": 1525.6534724157937,
+      "upper": 5973.18094296339
+    },
+    {
+      "month": "2024-10",
+      "modis": 2988,
+      "viirs": 8773,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 9724.419889937355,
+      "lower": 7500.656154663557,
+      "upper": 11948.183625211153
+    },
+    {
+      "month": "2024-11",
+      "modis": 1338,
+      "viirs": 4761,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 4793.994625103438,
+      "lower": 2570.2308898296396,
+      "upper": 7017.758360377236
+    },
+    {
+      "month": "2024-12",
+      "modis": 1820,
+      "viirs": 6412,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 6285.079440766621,
+      "lower": 4061.3157054928224,
+      "upper": 8508.84317604042
+    },
+    {
+      "month": "2025-01",
+      "modis": 1921,
+      "viirs": 7660,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 6591.121005732632,
+      "lower": 4367.357270458833,
+      "upper": 8814.88474100643
+    },
+    {
+      "month": "2025-02",
+      "modis": 3376,
+      "viirs": 12383,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 10827.965891015498,
+      "lower": 8604.2021557417,
+      "upper": 13051.729626289296
+    },
+    {
+      "month": "2025-03",
+      "modis": 4838,
+      "viirs": 17267,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 14864.006211630249,
+      "lower": 12640.24247635645,
+      "upper": 17087.769946904045
+    },
+    {
+      "month": "2025-04",
+      "modis": 2247,
+      "viirs": 9048,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 7566.400401294757,
+      "lower": 5342.636666020959,
+      "upper": 9790.164136568555
+    },
+    {
+      "month": "2025-05",
+      "modis": 972,
+      "viirs": 4244,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 3618.689475557147,
+      "lower": 1394.9257402833487,
+      "upper": 5842.453210830945
+    },
+    {
+      "month": "2025-06",
+      "modis": 1043,
+      "viirs": 3988,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 3850.3069261602955,
+      "lower": 1626.543190886497,
+      "upper": 6074.070661434094
+    },
+    {
+      "month": "2025-07",
+      "modis": 1191,
+      "viirs": 3720,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 4327.244975807573,
+      "lower": 2103.4812405337743,
+      "upper": 6551.008711081371
+    },
+    {
+      "month": "2025-08",
+      "modis": 1015,
+      "viirs": 4364,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 3759.1966645690936,
+      "lower": 1535.4329292952953,
+      "upper": 5982.960399842892
+    },
+    {
+      "month": "2025-09",
+      "modis": 1723,
+      "viirs": 6285,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 5989.245348814867,
+      "lower": 3765.4816135410683,
+      "upper": 8213.009084088666
+    },
+    {
+      "month": "2025-10",
+      "modis": 2367,
+      "viirs": 7563,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 7921.028244767693,
+      "lower": 5697.264509493894,
+      "upper": 10144.791980041491
+    },
+    {
+      "month": "2025-11",
+      "modis": 2410,
+      "viirs": 7888,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 8047.576287910061,
+      "lower": 5823.812552636263,
+      "upper": 10271.34002318386
+    },
+    {
+      "month": "2025-12",
+      "modis": 1355,
+      "viirs": 5733,
+      "region": "Southeastern U.S. bounds",
+      "adjusted": 4847.565514955291,
+      "lower": 2623.801779681493,
+      "upper": 7071.32925022909
+    }
+  ],
+  "limitations": [
+    "Regional bounding boxes use grid-cell centers, not administrative polygons.",
+    "Only months with qualifying detections in both sensors are included; missing months are not zeros. This selection can bias evaluation.",
+    "Year holdout tests temporal transfer in three existing regions; geographic generalization is not validated.",
+    "No cloud, overpass, view-angle or observation-opportunity normalization.",
+    "MODIS combines Terra and Aqua; platform/product versions and confidence definitions differ.",
+    "Intervals describe empirical residuals; time/space dependence prevents a guaranteed coverage interpretation.",
+    "Mapping is experimental. Do not apply globally, to pre-2012 history, to NRT, or as a forecast.",
+    "Hotspots include non-vegetation thermal anomalies; no wildfire/agricultural classification is inferred."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "firesense",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Global satellite burning activity calendar",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test",
+    "inspect": "node src/inspect.js",
+    "reconcile": "node src/reconcile.js",
+    "audit": "node src/audit.js",
+    "evaluate": "node src/evaluate.js",
+    "build:demo": "node src/package-demo.js",
+    "smoke": "node src/smoke.js"
+  }
+}

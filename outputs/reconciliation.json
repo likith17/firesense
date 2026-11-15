@@ -1,0 +1,511 @@
+{
+  "generated_at": "2026-11-15T19:00:39.887Z",
+  "total": 28789421,
+  "aliases": [
+    {
+      "name": "data/raw/viirs_snpp/fire_nrt_SV-C2_851145.csv",
+      "same_as": "data/raw/viirs_snpp/fire_nrt_SV-C2_851089.csv"
+    }
+  ],
+  "sources": [
+    {
+      "name": "data/raw/modis/fire_archive_M-C61_851088.csv",
+      "sha256": "70b22799911b0ae7d68aa30647740e9f49228d99a2870b4e1c6c545e3a66de48",
+      "product": "modis",
+      "processing": "standard",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight",
+        "type"
+      ],
+      "valid": 3158263,
+      "rejected": 2,
+      "errors": {
+        "Coordinates or FRP": 2
+      },
+      "min_date": "2000-11-01",
+      "max_date": "2026-08-31",
+      "detection_bounds": [
+        -176.6098,
+        18.9206,
+        -67.0042,
+        70.4921
+      ],
+      "satellites": [
+        "Terra",
+        "Aqua"
+      ],
+      "versions": [
+        "6.03",
+        "61.03"
+      ],
+      "decision": "already_imported",
+      "overlaps": [],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 2,
+      "accepted": 3158263,
+      "duplicates": 0,
+      "retained": 3158263,
+      "id": 1
+    },
+    {
+      "name": "data/raw/modis/fire_archive_M-C61_851144.csv",
+      "sha256": "e5aa1d1a4d796e95bcbd5a3be319d729f486271e00095a53f0b5dab3dc6c10fd",
+      "product": "modis",
+      "processing": "standard",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight",
+        "type"
+      ],
+      "valid": 2302480,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2026-01-01",
+      "max_date": "2026-08-31",
+      "detection_bounds": [
+        -178.1997,
+        -76.158,
+        179.6065,
+        81.4857
+      ],
+      "satellites": [
+        "Aqua",
+        "Terra"
+      ],
+      "versions": [
+        "61.03"
+      ],
+      "decision": "blocked_overlap",
+      "overlaps": [
+        {
+          "name": "data/raw/modis/fire_archive_M-C61_851088.csv",
+          "sha256": "70b22799911b0ae7d68aa30647740e9f49228d99a2870b4e1c6c545e3a66de48"
+        }
+      ],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 2302480,
+      "duplicates": 92479,
+      "retained": 2210001,
+      "id": 2
+    },
+    {
+      "name": "data/raw/modis/fire_nrt_M-C61_851088.csv",
+      "sha256": "e061e84b43256aeacbe8ff951408aeb9ca2086f7ddc385dee1e06b2a9b450631",
+      "product": "modis",
+      "processing": "nrt",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight"
+      ],
+      "valid": 13818,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2026-09-01",
+      "max_date": "2026-11-15",
+      "detection_bounds": [
+        -156.60846,
+        19.34551,
+        -70.07849,
+        63.32869
+      ],
+      "satellites": [
+        "Aqua",
+        "Terra"
+      ],
+      "versions": [
+        "6.1NRT"
+      ],
+      "decision": "already_imported",
+      "overlaps": [],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 13818,
+      "duplicates": 0,
+      "retained": 13818,
+      "id": 3
+    },
+    {
+      "name": "data/raw/modis/fire_nrt_M-C61_851144.csv",
+      "sha256": "b171c5a8d1024912e0b2434698f7023186c96a0517991bdebe7799d6b0653ec7",
+      "product": "modis",
+      "processing": "nrt",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight"
+      ],
+      "valid": 808857,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2026-09-01",
+      "max_date": "2026-11-15",
+      "detection_bounds": [
+        -179.31766,
+        -51.64205,
+        179.75085,
+        85.95154
+      ],
+      "satellites": [
+        "Terra",
+        "Aqua"
+      ],
+      "versions": [
+        "6.1NRT"
+      ],
+      "decision": "blocked_overlap",
+      "overlaps": [
+        {
+          "name": "data/raw/modis/fire_nrt_M-C61_851088.csv",
+          "sha256": "e061e84b43256aeacbe8ff951408aeb9ca2086f7ddc385dee1e06b2a9b450631"
+        }
+      ],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 808857,
+      "duplicates": 13818,
+      "retained": 795039,
+      "id": 4
+    },
+    {
+      "name": "data/raw/viirs_snpp/fire_archive_SV-C2_851089.csv",
+      "sha256": "a6f684186676b71297a587c914db1743b6883af83b461f6cf1ba247b4f291e2e",
+      "product": "viirs_snpp",
+      "processing": "standard",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight",
+        "type"
+      ],
+      "valid": 7894596,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2026-01-20",
+      "max_date": "2026-07-31",
+      "detection_bounds": [
+        -179.98082,
+        -87.798,
+        179.83577,
+        82.8202
+      ],
+      "satellites": [
+        "SNPP"
+      ],
+      "versions": [
+        "2"
+      ],
+      "decision": "already_imported",
+      "overlaps": [],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 7894596,
+      "duplicates": 0,
+      "retained": 7894596,
+      "id": 5
+    },
+    {
+      "name": "data/raw/viirs_snpp/fire_archive_SV-C2_851143.csv",
+      "sha256": "6043f045648af58967c59e0e2abf09399f33d136100269bf99e8db2d3993c97b",
+      "product": "viirs_snpp",
+      "processing": "standard",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight",
+        "type"
+      ],
+      "valid": 7448386,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2012-01-20",
+      "max_date": "2026-07-31",
+      "detection_bounds": [
+        -178.80754,
+        18.91701,
+        179.58794,
+        71.3286
+      ],
+      "satellites": [
+        "SNPP"
+      ],
+      "versions": [
+        "2"
+      ],
+      "decision": "blocked_overlap",
+      "overlaps": [
+        {
+          "name": "data/raw/viirs_snpp/fire_archive_SV-C2_851089.csv",
+          "sha256": "a6f684186676b71297a587c914db1743b6883af83b461f6cf1ba247b4f291e2e"
+        }
+      ],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 7448386,
+      "duplicates": 283572,
+      "retained": 7164814,
+      "id": 6
+    },
+    {
+      "name": "data/raw/viirs_snpp/fire_archive_SV-C2_851145.csv",
+      "sha256": "789dd02e43770e729efe896b28f1324e84170f617d916700b9d637382a6d0a8a",
+      "product": "viirs_snpp",
+      "processing": "standard",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight",
+        "type"
+      ],
+      "valid": 8859653,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2026-01-01",
+      "max_date": "2026-07-31",
+      "detection_bounds": [
+        -179.98082,
+        -87.798,
+        179.9413,
+        82.8202
+      ],
+      "satellites": [
+        "SNPP"
+      ],
+      "versions": [
+        "2"
+      ],
+      "decision": "blocked_overlap",
+      "overlaps": [
+        {
+          "name": "data/raw/viirs_snpp/fire_archive_SV-C2_851089.csv",
+          "sha256": "a6f684186676b71297a587c914db1743b6883af83b461f6cf1ba247b4f291e2e"
+        }
+      ],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 8859653,
+      "duplicates": 7909016,
+      "retained": 950637,
+      "id": 7
+    },
+    {
+      "name": "data/raw/viirs_snpp/fire_nrt_SV-C2_851089.csv",
+      "sha256": "4c4f39c2da02e19cfa9c54b7126104dbcbf98c409fc36bbd2a73f214542f5f65",
+      "product": "viirs_snpp",
+      "processing": "nrt",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight"
+      ],
+      "valid": 6602253,
+      "rejected": 6,
+      "errors": {
+        "Coordinates or FRP": 6
+      },
+      "min_date": "2026-08-01",
+      "max_date": "2026-11-02",
+      "detection_bounds": [
+        -179.95894,
+        -83.86404,
+        179.92024,
+        73.15479
+      ],
+      "satellites": [
+        "SNPP"
+      ],
+      "versions": [
+        "2.0NRT"
+      ],
+      "decision": "already_imported",
+      "overlaps": [],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 6,
+      "accepted": 6602253,
+      "duplicates": 0,
+      "retained": 6602253,
+      "id": 8
+    },
+    {
+      "name": "data/raw/viirs_snpp/fire_nrt_SV-C2_851143.csv",
+      "sha256": "68f12d980c9d7a0c112469ef845bd9c426446b440e1bb55016f27f9d4f35295c",
+      "product": "viirs_snpp",
+      "processing": "nrt",
+      "columns": [
+        "latitude",
+        "longitude",
+        "brightness",
+        "scan",
+        "track",
+        "acq_date",
+        "acq_time",
+        "satellite",
+        "instrument",
+        "confidence",
+        "version",
+        "bright_t31",
+        "frp",
+        "daynight"
+      ],
+      "valid": 167353,
+      "rejected": 0,
+      "errors": {},
+      "min_date": "2026-08-01",
+      "max_date": "2026-11-02",
+      "detection_bounds": [
+        -169.94693,
+        19.38026,
+        -67.57662,
+        70.49276
+      ],
+      "satellites": [
+        "SNPP"
+      ],
+      "versions": [
+        "2.0NRT"
+      ],
+      "decision": "blocked_overlap",
+      "overlaps": [
+        {
+          "name": "data/raw/viirs_snpp/fire_nrt_SV-C2_851089.csv",
+          "sha256": "4c4f39c2da02e19cfa9c54b7126104dbcbf98c409fc36bbd2a73f214542f5f65"
+        }
+      ],
+      "caveats": [
+        "Detection bounds are not the requested footprint or complete satellite coverage.",
+        "Overlap is a conservative extent check, not exact observation deduplication.",
+        "Review request metadata and rejected rows before importing."
+      ],
+      "rejectedExpected": 0,
+      "accepted": 167353,
+      "duplicates": 167353,
+      "retained": 0,
+      "id": 9
+    }
+  ],
+  "policy": "Exact full-field rows deduplicated within product and processing. Differing revisions are not resolved or merged. Standard and NRT remain separate. Attribution goes to first source in preflight order."
+}
