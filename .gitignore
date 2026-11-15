@@ -4,3 +4,9 @@ data/processed/
 .env
 node_modules/
 outputs/*.log
+
+# Local-only working notes (not part of the published repo)
+AGENTS.md
+docs/DEMO_SCRIPT.md
+docs/SUBMISSION.md
+docs/NEXT_STEPS.md

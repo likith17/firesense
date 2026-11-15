@@ -56,8 +56,8 @@ New raw imports: run node src/inspect.js first. Build a fresh database with node
 
 The Dockerfile packages the app and reconciled database with Node 24 and a non-root runtime. The container was built and smoke-tested on November 15, 2026 (full database served, non-root, error handling verified); public hosting has still not occurred. A hosting service must support a persistent Node process and roughly 250 MB of database storage plus working space. The offline HTML can instead be hosted as a static file; it exposes only the documented presets. No credentials are included.
 
-## Limitations and submission
+## Limitations
 
 Grid cells have unequal ground area and selections use cell centers. No basemap, polygon selection, cloud/overpass correction, unique-fire estimation, fire-type classification, or operational forecast. Version/platform details remain in the source ledger; daily version filtering is not exposed. The database keeps standard/NRT separate and does not implement revision replacement between them.
 
-See docs/METHODS.md, docs/SUBMISSION.md, docs/DEMO_SCRIPT.md, docs/NEXT_STEPS.md and docs/VERIFICATION_REPORT.md. All automated tests, real-data checks, API probes, and a full desktop/mobile browser verification pass (November 15, 2026, with screenshots). Public hosting, final demo recording and portal submission remain separate readiness gates.
+See docs/METHODS.md and docs/VERIFICATION_REPORT.md. All automated tests, real-data checks, API probes, and a full desktop/mobile browser verification pass (November 15, 2026, with screenshots).

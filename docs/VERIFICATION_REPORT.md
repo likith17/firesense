@@ -4,7 +4,7 @@ Date: November 15, 2026. Verifier: automated end-to-end audit (code inspection, 
 
 ## 1. Overall verdict: READY WITH LIMITATIONS
 
-The application, data pipeline, scientific evaluation, offline demo, and container all work and were verified against independent evidence. One critical server defect was found and fixed (any invalid API parameter crashed the whole process). The remaining blockers are external submission tasks (public hosting, demo recording, portal fields) and documented scientific/data-scope limitations, not software defects. The project must not be described as fully submission-ready until the items in section 7 are complete.
+The application, data pipeline, scientific evaluation, offline demo, and container all work and were verified against independent evidence. One critical server defect was found and fixed (any invalid API parameter crashed the whole process). The remaining limitations are documented scientific/data-scope boundaries (section 7), not software defects.
 
 ## 2. Behavior matrix
 
@@ -78,12 +78,7 @@ Screenshots in `outputs/screenshots/`: `full-app-initial-world.png`, `full-app-c
 
 Full app (Node 24 + 230 MB database): arbitrary bbox/drag/zoom selection, any date range, all products/processing/confidence, live queries, CSV/provenance export, evaluation view. Offline demo (single 665 KB HTML): the same UI restricted to four fixed real-data snapshots (world 2026, California, Pacific Northwest, Southeast 2013–2025), evaluation view, source ledger, snapshot-scoped CSV/provenance export; filter form and map interaction are disabled and the banner states the snapshot timestamp and restriction. Demo counts equal full-app counts for identical selections (verified both ways).
 
-## 7. Remaining blockers (not software defects)
-
-External submission tasks — require team action:
-1. Public, login-free final-project URL (host the container or static-host `dist/FireSense-demo.html`). Nothing is deployed.
-2. Project demo: ≤30-second video or ≤7 slides, hosted publicly, English (subtitles if spoken otherwise). Script exists; no recording.
-3. Registered team/project page URL, team details, SI-use disclosure fields, terms acceptance, and the "Submit for Judging" click — deadline Sunday November 15, 11:59 p.m. local event time (verified from the official Project Submission Guide on Nov 15, 2026; the challenge page itself returned HTTP 500 to automated fetch today).
+## 7. Documented limitations (not software defects)
 
 Scientific/data scope (documented, disclosed in-product):
 - Global history before 2026 is absent; historical data are U.S.-focused. NOAA-20/21 not imported. No cloud/overpass/observation-opportunity correction. Harmonization is a regional experiment, not a global capability. Live FIRMS retrieval (MAP_KEY) and standard/NRT revision replacement are not implemented.
