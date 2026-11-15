@@ -2,6 +2,11 @@
 
 NASA FIRMS burning-activity calendar and experimental MODIS/VIIRS comparison.
 
+- **Live demo (no install):** https://likith17.github.io/firesense/
+- **Repository:** https://github.com/likith17/firesense
+
+The live demo is the self-contained offline build with embedded real-data snapshots for four preset selections. Arbitrary filtering and map dragging require the full app below (the 230 MB observation database is not in this repository; raw NASA FIRMS exports are preserved locally).
+
 ## Run the full app
 
 Node.js 24 or newer. No npm install is required.

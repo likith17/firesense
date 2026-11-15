@@ -43,11 +43,11 @@ OpenAI ChatGPT/Codex assisted with project planning, software implementation, de
 ## Submission fields still requiring team input
 
 - Exact registered team/project URL, team name and members.
-- Public final-project/repository or hosted demo URL; localhost and local file links are not accessible to judges.
+- Public final-project link: https://github.com/likith17/firesense (repository) and https://likith17.github.io/firesense/ (hosted demo, verified live and login-free November 15, 2026).
 - Public short-demo URL. Use the 30-second script in `docs/DEMO_SCRIPT.md` or prepare a presentation within the applicable slide limit.
 - Check the Team Owner's event timezone and any earlier local judging deadline; the official 2026 page lists November 15 at 11:59 p.m. local time for project submission.
 - Final portal review, terms acceptance, and Submit for Judging action are not completed by this package.
 
 ## Remaining limitations to disclose
 
-No operational fire forecast, automatic alerts, cloud/overpass normalization, burned-area estimates, or validated fire-type classification. Global history before 2026 is incomplete. Map selections use one-degree cell centers and the current atlas has a coordinate grid, not a geographic basemap or administrative polygons. Live retrieval is not configured. Desktop/mobile browser verification and a container smoke test were completed November 15, 2026 (docs/VERIFICATION_REPORT.md); public hosting, the recorded demo, and portal submission remain outstanding.
+No operational fire forecast, automatic alerts, cloud/overpass normalization, burned-area estimates, or validated fire-type classification. Global history before 2026 is incomplete. Map selections use one-degree cell centers and the current atlas has a coordinate grid, not a geographic basemap or administrative polygons. Live retrieval is not configured. Desktop/mobile browser verification and a container smoke test were completed November 15, 2026 (docs/VERIFICATION_REPORT.md). Public hosting is live (https://likith17.github.io/firesense/, hash-verified against the local build); the recorded demo video and portal submission remain outstanding.

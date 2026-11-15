@@ -11,7 +11,7 @@
 
 ## Required before submission (external, team action)
 
-1. Publish a public final-project URL with no login. Options: run the verified container on any Node-24-capable host (~250 MB storage), or static-host `dist/FireSense-demo.html`.
+1. DONE November 15: public repository https://github.com/likith17/firesense and hosted demo https://likith17.github.io/firesense/ (GitHub Pages from /docs, build verified HTTP 200, SHA-256 identical to the local dist file). The 230 MB database, raw CSVs and ZIPs are excluded by .gitignore and preserved locally.
 2. Record the ≤30-second demo video from the verified UI (script in docs/DEMO_SCRIPT.md) or prepare ≤7 slides; host publicly; English subtitles if narrated in another language.
 3. Supply the exact registered team/project page URL and confirm the Team Owner's event timezone.
 4. Team Owner completes portal fields (summary, demo link, project link, NASA data, SI-use disclosure), accepts terms, and clicks "Submit for Judging" before the deadline. Local judging may close earlier — check with the Local Lead.
